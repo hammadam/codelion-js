@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로또번호추첨기</title>
+  <link rel="stylesheet" href="style_lotto.css" />
+</head>
+<body>
+  <h1>로또번호추첨기</h1>
+  <h2>임의의 랜덤숫자 나오게 하기</h2>
+  <script>
+    var num_basic = Math.random();
+    var num = Math.random() * 45 + 1;
+    // * 45 하면 0 ~ 45까지의 숫자가 나오고
+    // + 1을 하면 1~45까지의 숫자가 나오게 됨
+    var ball1 = parseInt(num);
+    document.write(num_basic, ' / ', num, ' / ', ball1);
+  </script>
+  <hr />
+  <h2>배열에 넣고, 출력하기</h2>
+  <script>
+    var lotto=[1,2,3,4,5,6];
+    lotto.push(7);
+    document.write(lotto,', ',lotto[0]);
+  </script>
+  <hr />
+  <h2>임의의 정수를 배열에 넣고 출력하기</h2>
+  <script>
+    var lottoTest=[];
+    lottoTest.push(parseInt(Math.random() * 45 + 1));
+    lottoTest.push(parseInt(Math.random() * 45 + 1));
+    lottoTest.push(parseInt(Math.random() * 45 + 1));
+    lottoTest.push(parseInt(Math.random() * 45 + 1));
+    lottoTest.push(parseInt(Math.random() * 45 + 1));
+    lottoTest.push(parseInt(Math.random() * 45 + 1));
+    document.write(lottoTest);
+  </script>
+  <hr />
+  <h2>for반복문</h2>
+  <h4>DRY : Don't Repeat Yourself</h4>
+  <script>
+    var lottoFor=[];
+    for(var i = 0; i < 6; i++) {
+      lottoFor.push(parseInt(Math.random() * 45 + 1));
+    }
+    document.write(lottoFor);
+  </script>
+  <hr />
+  <h2>if조건문</h2>
+  <script>
+    var lottoIf=[];
+    for(var i = 0; i < 6; i++) {
+      var numLotto = parseInt(Math.random() * 45 + 1);
+      if(lottoIf.indexOf(numLotto) == -1){
+        lottoIf.push(numLotto);
+      }
+    }
+    document.write(lottoIf);
+  </script>
+  <hr />
+  <h2>while조건문</h2>
+  <script>
+    var lottoWhile=[];
+    while(lottoWhile.length < 6) {
+      var numLottoW = parseInt(Math.random() * 45 + 1);
+      if(lottoWhile.indexOf(numLottoW) == -1){
+        lottoWhile.push(numLottoW);
+      }
+    }
+    document.write(lottoWhile);
+  </script>
+  <hr />
+  <h2>.sort 오름차순 정렬</h2>
+  <script>
+    var lottoSortTest=[1,2,3,33,22,11];
+    lottoSortTest.sort();
+    document.write(lottoSortTest,'<br>');
+    lottoSortTest.sort((a,b)=>a-b);
+    document.write(lottoSortTest);
+    document.write('<br><br> <h4>로또번호에 sort 적용하기</h4>');
+
+    var lottoSort=[];
+    while(lottoSort.length < 6) {
+      var numLottoS = parseInt(Math.random() * 45 + 1);
+      if(lottoSort.indexOf(numLottoS) == -1){
+        lottoSort.push(numLottoS);
+      }
+    }
+    lottoSort.sort((a,b)=>a-b);
+    document.write(lottoSort);
+  </script>
+  <hr />
+  <h2>html,css</h2>
+  <script>
+    var lottoSort=[];
+    while(lottoSort.length < 6) {
+      var numLottoS = parseInt(Math.random() * 45 + 1);
+      if(lottoSort.indexOf(numLottoS) == -1){
+        lottoSort.push(numLottoS);
+      };
+    };
+    lottoSort.sort((a,b)=>a-b);
+    document.write("<div class='ball ball1'>" + lottoSort[0] + "</div>");
+    document.write("<div class='ball ball2'>" + lottoSort[1] + "</div>");
+    document.write("<div class='ball ball3'>" + lottoSort[2] + "</div>");
+    document.write("<div class='ball ball4'>" + lottoSort[3] + "</div>");
+    document.write("<div class='ball ball5'>" + lottoSort[4] + "</div>");
+    document.write("<div class='ball ball6'>" + lottoSort[5] + "</div>");
+  </script>
+</body>
+</html>

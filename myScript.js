@@ -1,0 +1,1 @@
+document.write("나의 스크립트");

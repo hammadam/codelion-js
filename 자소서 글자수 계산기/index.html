@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>자소서 글자수 계산기</title>
+  <style>
+    h1 {
+        margin-top: 30px;
+    }
+    #count {
+        float: right;
+    }
+</style>
+</head>
+<body>
+  <h1>자소서 글자수 계산기</h1>
+  <h3>자바스크립트로 돔을 다루는 방법을 알아보자</h3>
+  <hr />
+  <h1>자기소개</h1>
+    <textarea onkeydown="counter();" class="form-control" rows="3" id="jasoseol">저는 인성 문제가 없습니다. 진짜에요. '함께 성장하는 바른 교육' 이듬(EUID)과 멋쟁이 사자처럼 태킷(Techit) 스쿨이 만났습니다. '이듬' 교육이 지향하는 비전은 동반 성장에 있습니다. 강사에서 수강생으로 한 방향으로 흘러가는 지식 전달이 아닌, 함께 공감하고 이해하며 경험하는 교육 가치를 통해 공동의 혁신을 이끌어내는 것을 목표로</textarea>
+    <span id="count">(0/200)</span>
+    <!-- <script>
+      var content = document.getElementById('jasoseol').value;
+      console.log(content, content.length);
+      document.getElementById('count').innerHTML = '('+ content.length + '/200)';
+    </script> -->
+    <script>
+      //위에 작성한 스크립트를 함수로 묶기
+      function counter(){
+        var content = document.getElementById('jasoseol').value;
+        if(content.length > 200){
+          content = content.substring(0, 200);
+          //글자를 200자까지 자르게 하기
+          document.getElementById('jasoseol').value = content; 
+          //200자까지 잘린 글자들을 다시 textarea 에 넣어주면. 우리는 200자 이후의 글자는 계속 잘리는 것처럼 보이게 됨
+        }
+        console.log(content, content.length);
+        document.getElementById('count').innerHTML = '('+ content.length + '/200)';
+      };
+      counter();
+    </script>
+</body>
+</html>
